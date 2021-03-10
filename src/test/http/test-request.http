@@ -1,4 +1,16 @@
 GET https://localhost:9081/resources/test/1
+Authorization: Basic admin admin
+Accept: application/json
+
+###
+POST https://localhost:9081/resources/test/2
+Authorization: Basic admin admin
+Accept: application/json
+Content-Type: application/json
+
+{
+  "property": "prova"
+}
 
 ###
 

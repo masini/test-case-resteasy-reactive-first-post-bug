@@ -1,5 +1,6 @@
 package org.acme;
 
+import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 
 import javax.annotation.security.RolesAllowed;
@@ -8,9 +9,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Path("/test")
 //@Blocking
@@ -20,8 +18,8 @@ public class GreetingResource {
     @Path("1")
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed("TERMINAL_ROLE")
-    public List<TestDTO> getAll() {
-        return Collections.emptyList();
+    public Multi<TestDTO> getAll() {
+        return Multi.createFrom().items();
     }
 
     @POST
